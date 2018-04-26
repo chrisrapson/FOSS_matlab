@@ -70,14 +70,14 @@ y4=interp(x,upsample_rate);
 y5=rapsonc_resample(x,upsample_rate);
 y7=upsample(x,upsample_rate);
 
-myFigure
-plot(x)
+figure_tiled;
+plot(linspace(0,1,length(x)),x)
 hold all
-plot(y1)
-plot(y2)
-plot(y6)
-plot(y3)
-plot(y4)
-plot(y5)
-plot(y7)
+plot(linspace(0,1,length(y1)),y1)
+plot(linspace(0,1,length(y2)),y2)
+plot(linspace(0,1,length(y6)),y6)
+plot(linspace(0,1,length(y3)),y3)
+plot(linspace(0,1,length(y4)),y4)
+plot(linspace(0,1,length(y5)),y5)
+plot(linspace(0,1,length(y7)),y7)
 legend('original','decimate','resample down','downsample','resample up','interp','rapsonc resample','upsample')
