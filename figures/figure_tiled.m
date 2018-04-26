@@ -19,12 +19,12 @@ taskbar_height = 0.04 * screenSize(4);
 height=(screenSize(4) - taskbar_height)/2*figSize(2); %no padding required when using OuterPosition
 width=screenSize(3)/3*figSize(1);  %no padding required when using OuterPosition
 
-figurePositions=[1,                taskbar_height + height,  width,height;  %1
-                screenSize(3)/3    taskbar_height + height,  width,height;  %2
-                screenSize(3)*2/3  taskbar_height + height,  width,height;  %3
-                1,                 taskbar_height,                width,height;  %4
-                screenSize(3)/3,   taskbar_height,                width,height;  %5
-                screenSize(3)*2/3, taskbar_height,                width,height]; %6
+figurePositions=[1,                screenSize(4) - height,  width,height;  %1
+                screenSize(3)/3    screenSize(4) - height,  width,height;  %2
+                screenSize(3)*2/3  screenSize(4) - height,  width,height;  %3
+                1,                 max([0,screenSize(4) - 2*height]),                width,height;  %4
+                screenSize(3)/3,   max([0,screenSize(4) - 2*height]),                width,height;  %5
+                screenSize(3)*2/3, max([0,screenSize(4) - 2*height]),                width,height]; %6
 
 if nargin==0 || isempty(figNumber)
     figHandle=figure;
