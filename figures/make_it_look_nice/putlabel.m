@@ -61,6 +61,7 @@ else
     ypos=10^ypos;
 end
 
-if nargin>=1
-	text_handle=text('parent',axis_handle,'position',[xpos,ypos],'String',label,'verticalAlignment','top',varargin{:});
+tmp=text('parent',axis_handle,'position',[xpos,ypos],'String',label,'verticalAlignment','top',varargin{:});
+if nargout>=1
+	text_handle = tmp;
 end
