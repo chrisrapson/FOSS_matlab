@@ -27,13 +27,17 @@ figurePositions=[1,                screenSize(4) - height,  width,height;  %1
                 screenSize(3)*2/3, max([0,screenSize(4) - 2*height]),                width,height]; %6
 
 if nargin==0 || isempty(figNumber)
-    figHandle=figure;
+    fh=figure;
 else
-    figHandle=figure(figNumber);
+    fh=figure(figNumber);
 end
 
-if isnumeric(figHandle)
-    set(gcf,'OuterPosition',figurePositions(mod(figHandle-1,6)+1,:))
+if isnumeric(fh)
+    set(gcf,'OuterPosition',figurePositions(mod(fh-1,6)+1,:))
 else
     set(gcf,'OuterPosition',figurePositions(mod(get(gcf,'Number')-1,6)+1,:))
+end
+
+if nargout > 0
+	figHandle = fh;
 end
