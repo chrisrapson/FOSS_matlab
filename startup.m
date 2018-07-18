@@ -5,7 +5,13 @@ if ~isdeployed
 	disp('adding directories from FOSS_matlab...')
 	[my_matlab_root,~,~]=fileparts(mfilename('fullpath'));
 	%careful: genpath_exclude can't handle folder names which include the character ':'
-	addpath(genpath(fullfile(my_matlab_root,'FOSS_matlab')))
+	path_to_genpath_exclude = fullfile(my_matlab_root,'FOSS_matlab','misc');
+	if exist(path_to_genpath_exclude,'dir') == 7
+		addpath(path_to_genpath_exclude)
+		addpath(genpath_exclude_rapsonc(fullfile(my_matlab_root),'.git'))
+	else
+		addpath(genpath(my_matlab_root));
+	end
 	
 	%deployed programs should use the default lineWidth, markerSize and fontSize
 	set(0,'defaultlinelinewidth',2)%make lines thick enough for ppts
