@@ -18,7 +18,7 @@ y4=interp(x,upsample_rate);
 y5=rapsonc_resample(x,upsample_rate);
 y7=upsample(x,upsample_rate);
 
-myFigure
+figure_tiled
 plot(x)
 hold all
 plot(y1)
@@ -43,7 +43,7 @@ y4=interp(x,upsample_rate);
 y5=rapsonc_resample(x,upsample_rate);
 y7=upsample(x,upsample_rate);
 
-myFigure
+figure_tiled
 plot(x)
 hold all
 plot(y1)
