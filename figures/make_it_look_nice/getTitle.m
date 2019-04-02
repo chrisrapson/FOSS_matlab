@@ -10,7 +10,12 @@ if nargin < 1 || isempty(fh)
 	fh = gcf;
 end
 if nargin < 2 || isempty(axh)
-	axhs = get(fh,'Children');
+	axhs = get(fh,'Children'); %includes legends, but we only want axes
+	for ii = length(axhs):-1:1
+		if ~strcmpi(get(axhs(ii),'type'),'Axes')
+			axhs(ii) = [];
+		end
+	end
 	axh = axhs(1);
 end
 
