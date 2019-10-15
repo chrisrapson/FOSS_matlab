@@ -5,7 +5,7 @@ function saveAllPlots(leaveOpen, imgFormat)
 % usually close figures after saving, but allow user to specify
 % 'leaveOpen = 1' to keep them open
 %
-% file format is png by default, but can be specified in arg2
+% file format is '-png' by default, but can be specified in arg2
 %
 %
 % Chris Rapson 2019-02-15
@@ -25,7 +25,12 @@ for fH_ix = 1:length(fH)
 		T = num2str(T);
 	end
 	T = latexify(T);
-	export_fig(fH(fH_ix), T, imgFormat);
+	if ~isempty(strfind(imgFormat, 'pdf'))
+		%make sure PDFs are saved in vector format
+		export_fig(fH(fH_ix), T, imgFormat, '-painters');
+	else
+		export_fig(fH(fH_ix), T, imgFormat);
+	end
 	
 	if ~leaveOpen
 		close(fH(fH_ix))
