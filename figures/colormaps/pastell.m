@@ -13,6 +13,8 @@ function cmap=pastell(l,zero_fraction)
 % v1.0		: Chris Rapson 2011 - rewrite Olaf Grulke's pastell.m to allow variable length
 % v2.0		: Chris Rapson 2013 - add ability to shift zero position
 
+% TODO: r2 is unstable for very small values of l. Consider using linspace instead
+
 if nargin<1 || isempty(l)
     l=128;
 end
